@@ -16,8 +16,7 @@ function Map(){
     //Map content
     const MapContent = compose(
         withProps({
-            googleMapURL:
-                "https://maps.googleapis.com/maps/api/js?key=AIzaSyBLT0yiIBSyM_l0PvIp7cH1rbPnfPfcETM&v=3.exp&libraries=geometry,drawing,places",
+            googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBLT0yiIBSyM_l0PvIp7cH1rbPnfPfcETM&v=3.exp&libraries=geometry,drawing,places",
             loadingElement: <div style={{ height: `100%` }} />,
             containerElement: <div style={{ height: `100%` }} />,
             mapElement: <div style={{ height: `100%` }} />
@@ -27,34 +26,21 @@ function Map(){
     )((props =>
         <GoogleMap
             defaultZoom={8}
-            defaultCenter={center}
+            defaultCenter={props.defaultCenter}
         >
+            <Marker position={props.defaultCenter}/>
         </GoogleMap>
     ));
 
-    //<Marker
-    //                 position={center}
-    //             />
-
-
     function updateHeight(){
         setHeight(MyRef.current.offsetWidth);
-
-        console.log(MyRef.current.offsetWidth)
     }
     const style = {
         height: height
     }
-    useEffect(() => {
-        // Update the document title using the browser API
-        setHeight(MyRef.current.offsetWidth);
-
-        console.log(MyRef.current.offsetWidth)
-    });
     useLayoutEffect(() => {
         function updateSize(){
             setHeight(MyRef.current.offsetWidth);
-            console.log(MyRef.current.offsetWidth)
         }
         window.addEventListener('resize', updateSize);
         updateSize();
@@ -65,13 +51,7 @@ function Map(){
             <div className="container">
                 <div className="heading-text">Map</div>
                 <div className="map-content">
-                    <MapContent
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLT0yiIBSyM_l0PvIp7cH1rbPnfPfcETM&v=3.exp&libraries=geometry,drawing,places"
-                        loadingElement={<div style={{ height: `100%` }} />}
-                        containerElement={<div style={{ height: `100%` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}
-                        defaultCenter={center}
-                    />
+                    <MapContent defaultCenter={center}/>
                 </div>
             </div>
         </div>

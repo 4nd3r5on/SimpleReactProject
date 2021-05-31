@@ -24,10 +24,10 @@ function App() {
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
-    var ContentStyle = {
+    const ContentStyle = {
         width: "calc(100% - " + menu + "px)"
     };
-    var MenuStyle = {
+    const MenuStyle = {
         width: menu,
         maxWidth: "100vw",
         opacity: opacity + "%"

@@ -72,15 +72,7 @@ function Carousel(props) {
         function changePosition(){
             setPosition(image.id)
         }
-        if(position === image.id){
-            return(
-                <div className="indicator" style={ActiveStyle}></div>
-            )
-        } else{
-            return(
-                <div className="indicator" style={Style} onClick={() => changePosition()}></div>
-            )
-        }
+        return position === image.id ? <div className="indicator" style={ActiveStyle}></div> : <div className="indicator" style={Style} onClick={() => changePosition()}></div>
     }
 
 
