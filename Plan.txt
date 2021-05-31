@@ -1,0 +1,10 @@
+Site about hacking
+
+Plan
+
+1. animated background
+2. header with animated text
+3. animated sidebar
+4. dropping menu in sidebar
+5. swipable carusel
+6. admin-panel
