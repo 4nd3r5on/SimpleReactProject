@@ -13,22 +13,20 @@ function Map(){
     const [center] = useState({ lat: -34.397, lng: 150.644 })
     const MyRef = useRef("map")
 
-    //Map content
     const MapContent = compose(
         withProps({
             googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBLT0yiIBSyM_l0PvIp7cH1rbPnfPfcETM&v=3.exp&libraries=geometry,drawing,places",
             loadingElement: <div style={{ height: `100%` }} />,
-            containerElement: <div style={{ height: `100%` }} />,
+            containerElement: <div style={{ height: `400px` }} />,
             mapElement: <div style={{ height: `100%` }} />
         }),
         withScriptjs,
         withGoogleMap
-    )((props =>
-        <GoogleMap
-            defaultZoom={8}
-            defaultCenter={props.defaultCenter}
-        >
-            <Marker position={props.defaultCenter}/>
+    )((props) => (
+        <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+            {props.isMarkerShown && (
+                <Marker position={{ lat: -34.397, lng: 150.644 }} />
+            )}
         </GoogleMap>
     ));
 
@@ -51,7 +49,7 @@ function Map(){
             <div className="container">
                 <div className="heading-text">Map</div>
                 <div className="map-content">
-                    <MapContent defaultCenter={center}/>
+                    <MapContent isMarkerShown={true}/>
                 </div>
             </div>
         </div>
