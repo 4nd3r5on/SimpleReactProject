@@ -1,0 +1,16 @@
+h2{
+    text-align: center;
+}
+.AboutUs {
+    display: flex;
+    flex-direction: column;
+    background-color: #282c34;
+    color: #eeeeee;
+    text-align: left;
+}
+.AboutUs .dark-div{
+    padding: 15px;
+    color: #e0e0e0;
+    background-color: #1f2029;
+    box-shadow: inset 0px 0px 20px 10px rgba(0,0,0, 0.3);
+}

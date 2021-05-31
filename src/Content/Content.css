@@ -1,0 +1,7 @@
+.Content{
+    width: 100%;
+    overflow-y: auto;
+}
+.upper{
+    z-index: 3;
+}
