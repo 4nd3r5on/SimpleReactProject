@@ -50,6 +50,21 @@
 .contact-btn:hover{
     transform: scale(1.2, 1.2);
 }
+
+/*Transition*/
+.button-transition{
+
+}
+.button-transition{
+
+}
+.button-transition{
+
+}
+.button-transition{
+
+}
+
 .contact{
     margin: 0 auto 10px auto;
     display: flex;

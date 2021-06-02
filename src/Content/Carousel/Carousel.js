@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {forwardRef, useState, useRef, useImperativeHandle} from "react";
 import "./Carousel.css";
 import { useSwipeable } from "react-swipeable";
 import {CSSTransition} from "react-transition-group";
@@ -6,6 +6,7 @@ import {CSSTransition} from "react-transition-group";
 
 function Carousel(props) {
     const [position, setPosition] = useState(0);
+
     const handlers = useSwipeable({
         onSwipedLeft: () => Next(),
         onSwipedRight: () => Prev(),
@@ -114,4 +115,4 @@ function Carousel(props) {
     )
 }
 
-export default Carousel
+export default React.memo(Carousel)

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useImperativeHandle, useRef, forwardRef} from "react";
 import "./Content.css";
 import Carousel from "./Carousel/Carousel";
 import AboutUs from "./AboutUs/AboutUs";
@@ -7,7 +7,7 @@ import Feedback from "./Feedback/Feedback";
 import anonymous1 from "./Carousel/anonymous1.jpg";
 import anonymous2 from "./Carousel/anonymous2.jpg";
 
-function Content() {
+function Content(props) {
     const [ImagesList] = useState([
         {
             id: 0,
@@ -31,12 +31,79 @@ function Content() {
             link: ""
         }
     ]);
+
+    const RefedCarousel = forwardRef((props, ref) => {
+        const sectionRef = useRef();
+        useImperativeHandle(ref, () => ({
+            scrollIntoView: () => {
+                sectionRef.current.scrollIntoView({
+                    block: "start",
+                    behavior: "smooth"
+                });
+            }
+        }));
+        return(
+            <div ref={sectionRef}>
+                <Carousel ImagesList={props.ImagesList}/>
+            </div>
+        )
+    })
+    const RefedAboutUs = forwardRef((props, ref) => {
+        const sectionRef = useRef();
+        useImperativeHandle(ref, () => ({
+            scrollIntoView: () => {
+                sectionRef.current.scrollIntoView({
+                    block: "start",
+                    behavior: "smooth"
+                });
+            }
+        }));
+        return(
+            <div ref={sectionRef}>
+                <AboutUs/>
+            </div>
+        )
+    })
+    const RefedContacts = forwardRef((props, ref) => {
+        const sectionRef = useRef();
+        useImperativeHandle(ref, () => ({
+            scrollIntoView: () => {
+                sectionRef.current.scrollIntoView({
+                    block: "start",
+                    behavior: "smooth"
+                });
+            }
+        }));
+        return(
+            <div ref={sectionRef}>
+                <Contacts/>
+            </div>
+        )
+    })
+    const RefedFeedback = forwardRef((props, ref) => {
+        const sectionRef = useRef();
+        useImperativeHandle(ref, () => ({
+            scrollIntoView: () => {
+                sectionRef.current.scrollIntoView({
+                    block: "start",
+                    behavior: "smooth"
+                });
+            }
+        }));
+        return(
+            <div ref={sectionRef}>
+                <Feedback/>
+            </div>
+        )
+    })
+
+
     return(
         <div className="Сontent">
-            <Carousel ImagesList={ImagesList}/>
-            <AboutUs/>
-            <Contacts/>
-            <Feedback/>
+            <RefedCarousel ImagesList={ImagesList} ref={props.topRef}/>
+            <RefedAboutUs ref={props.aboutUsRef}/>
+            <RefedContacts ref={props.contactsRef}/>
+            <RefedFeedback ref={props.feedbackRef}/>
         </div>
     )
 }

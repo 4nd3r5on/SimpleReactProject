@@ -15,18 +15,89 @@
     color: #eeeeee;
 }
 .MenuItem{
+    border: none;
+    color: #e0e0e0;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: #333842;
-    margin-bottom: 5px;
-    transition: border-bottom-color 0.3s ease-in-out;
-    border-bottom: 1px solid green;
-    border-radius: 3px;
+    margin-bottom: 10px;
+    border-radius: 5px;
     padding: 3px 10px 3px 10px;
     font-weight: bold;
+    background-color: #282c34;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5), inset 0 2px 5px 0 rgba(0,0,0,.2);
+    border-top: 0.5px solid #343942;
+    border-bottom: 1px solid green;
+    transition: border-bottom-color 0.3s ease-in-out;
 }
+
 .MenuItem:hover{
     border-bottom-color: lightgreen;
+}
+
+.login-btn-container{
+    position: absolute;
+    bottom: 100px;
+}
+.login-btn {
+    margin: 30px 15px 15px 15px;
+    width: 100px;
+    height: 35px;
+    color: #e0e0e0;
+    background-color: #282c34;
+    font-weight: bold;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
+    border: none;
+    border-radius: 10px;
+    transition:
+            box-shadow 1s ease-in-out,
+            background-color 1s ease-in-out,
+            color 0.3s ease-in-out,
+            transform 0.6s ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+
+.glowing {
+    color: #e0e0e0;
+    background-color: #282c34;
+    font-weight: bold;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
+    border: none;
+    transition:
+            box-shadow 1s ease-in-out,
+            background-color 1s ease-in-out,
+            color 0.3s ease-in-out,
+            transform 0.6s ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+.glowing:hover{
+    color: #282c34;
+    background-color: #e0e0e0;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.glowing::after {
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+    z-index: -3;
+    box-shadow:
+            inset 0 0 12px rgba(144,238,144,0.58),
+            0 0 6px rgba(202,228,225,0.98),
+            0 0 30px rgba(202,228,225,0.42),
+            0 0 12px rgba(144,238,144,0.58),
+            0 0 22px rgba(144,238,144,0.84),
+            0 0 38px rgba(144,238,144,0.88),
+            0 0 60px rgba(144,238,144,1);
+    opacity: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transition: opacity 1s ease-in-out;
+}
+.glowing:hover::after {
+    opacity: 1;
 }

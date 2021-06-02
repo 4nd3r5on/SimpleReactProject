@@ -1,7 +1,9 @@
+body{
+}
 .App{
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 ::selection { background-color: lightgreen; color: #141517}
 .horizontal-container{
