@@ -11,6 +11,7 @@ import "./Map.css"
 function Map(){
     const [height, setHeight] = useState(0)
     const MyRef = useRef("map")
+    const [center] = useState({ lat: -34.397, lng: 150.644 })
 
     const MapContent = compose(
         withProps({
@@ -22,9 +23,9 @@ function Map(){
         withScriptjs,
         withGoogleMap
     )((props) => (
-        <GoogleMap defaultZoom={8} defaultCenter={"lat: 40.854885,lng: -88.081807"}>
+        <GoogleMap defaultZoom={8} defaultCenter={center}>
             {props.isMarkerShown && (
-                <Marker position={"lat: 40.854885,lng: -88.081807"} />
+                <Marker position={center} />
             )}
         </GoogleMap>
     ));
